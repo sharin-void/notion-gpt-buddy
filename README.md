@@ -1,45 +1,114 @@
 # Notion GPT Buddy [ WIP ! ] 🐱‍💻
-![Static Badge](https://img.shields.io/badge/WIP%20!-red?style=social&logo=github&logoSize=auto)
-![Static Badge](https://img.shields.io/badge/State-Development-red?style=flat&logo=github&logoSize=auto)
-![Static Badge](https://img.shields.io/badge/Next.js-green?logo=nextdotjs&logoSize=auto)
-![Static Badge](https://img.shields.io/badge/TypeScript-blue?style=flat&logo=typescript&logoColor=fafafa&logoSize=auto)
-![Static Badge](https://img.shields.io/badge/Vercel-blue?logo=vercel&logoSize=auto)
+![](https://img.shields.io/badge/WIP%20!-red?style=social&logo=github&logoSize=auto)
+![](https://img.shields.io/badge/State-Development-red?style=flat&logo=github&logoSize=auto)
+[![](https://img.shields.io/badge/Next.js-black?logo=nextdotjs&logoSize=auto)](https://nextjs.org/)
+[![](https://img.shields.io/badge/TypeScript-blue?style=flat&logo=typescript&logoColor=fafafa&logoSize=auto)](https://www.typescriptlang.org/)
+[![](https://img.shields.io/badge/Vercel-black?logo=vercel&logoSize=auto)](https://vercel.com/)
+[![](https://img.shields.io/badge/license-GNU%20GPL--3.0-blue)](https://github.com/sharin-void/notion-gpt-buddy/blob/master/LICENSE)
 
+> [!IMPORTANT]
+> This project is being currently developed, but you can check in on the progress while it's happening here! :r:
 
+Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. This tool helps you interact with your Notion workspace using natural language, making it easier to manage your notes, tasks, and databases.
 
-This is a work in progress. The project is being currently actively developed.
+# Features 🚀
 
-## Getting Started
+* 🤖 ChatGPT-powered natural language interface
+* 📝 Read and write to Notion pages and databases
+* 🔄 Real-time chat interface
+* 🎨 Modern, responsive UI
+* 🔒 Secure API key management
 
-First, run the development server:
+# Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* [OpenAI API](https://platform.openai.com/settings/organization/api-keys)
+* [Notion API](https://notion.so/my-integrations)
+* [Vercel](https://vercel.com/) account for hosting the app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Project Status 📊
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Completed ✅
+* Next.js framework configured with TypeScript
+* OpenAI API integration
+* Notion API integration
+* Basic chat interface with message history
+* Environment configuration
+* Notion resource configuration system
+* Client-side hydration fixes
+* Basic error handling
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## In Progress 🚧
+* Notion read/write operations
+* Block type support implementation
+* UI/UX improvements
 
-## Learn More
+# Next Steps 🎯
 
-To learn more about Next.js, take a look at the following resources:
+1. **Notion Integration**
+   - [ ] Implement page reading functionality
+   - [ ] Add database query support
+   - [ ] Enable block creation and modification
+   - [ ] Add support for rich text formatting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **UI/UX Improvements**
+   - [ ] Add loading states
+   - [ ] Implement error messages
+   - [ ] Add success notifications
+   - [ ] Improve mobile responsiveness
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Features**
+   - [ ] Add conversation history persistence
+   - [ ] Implement user preferences
+   - [ ] Add support for multiple Notion workspaces
+   - [ ] Create documentation for block types
 
-## Deploy on Vercel
+4. **Deployment**
+   - [ ] Set up Vercel deployment
+   - [ ] Add CI/CD pipeline
+   - [ ] Implement monitoring
+   - [ ] Add analytics
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing the Current Build 🧪
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Setup**
+   ```bash
+   # Clone the repository
+   git clone https://github.com/your-username/notion-gpt-buddy.git
+   cd notion-gpt-buddy
+
+   # Install dependencies
+   npm install
+   ```
+
+2. **Configuration**
+   - Rename `.env.example` to `.env` and add your API keys:
+     ```dotenv
+     OPENAI_API_KEY=your_openai_api_key_here
+     NOTION_API_KEY=your_notion_api_key_here
+     ```
+   - Create a file named `notion-config.json` with your Notion page and database IDs:
+     ```json
+     {
+       "pages": {
+         "your-page-name": "your-page-id"
+       },
+       "databases": {
+         "your-database-name": "your-database-id"
+       }
+     }
+     ```
+     
+3. **Running Locally**
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:3000` to see the application.
+
+4. **Testing Features**
+   - Try sending a message in the chat interface
+   - Test basic Notion operations (coming soon)
+   - Check error handling by using invalid API keys
+
+## License 📄
+
+This project is licensed under the GNU GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
