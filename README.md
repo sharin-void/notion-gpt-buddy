@@ -34,45 +34,47 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 # Project Status 📊
 
 ## Completed ✅
-* Next.js framework configured with TypeScript
-* OpenAI API integration
-* Notion API integration
-* Basic chat interface with message history
-* Environment configuration
-* Notion resource configuration system
-* Client-side hydration fixes
-* Basic error handling
+- Next.js framework configured with TypeScript
+- OpenAI API integration
+- Notion API integration
+- Basic chat interface with message history
+- Environment configuration
+- Notion resource configuration system
+- Basic error handling
+- Database schema caching system
+
 
 ## In Progress 🚧
-* Notion read/write operations
-* Block type support implementation
-* UI/UX improvements
+- Database query
+- Enhancing the chat interface
+- Notion read/write operations
+- UI/UX improvements
 
-# Next Steps 🎯
+## Next Steps 🎯
 
-1. **Notion Integration**
-   - [ ] Implement page reading functionality
-   - [ ] Add database query support
-   - [ ] Enable block creation and modification
-   - [ ] Add support for rich text formatting
+### 1. Notion Integration
+- [x] Implement page reading functionality
+- [x] Add database query support
+- [ ] Enable block creation and modification
+- [ ] Implement better error messages using schema cache
 
-2. **UI/UX Improvements**
-   - [ ] Add loading states
-   - [ ] Implement error messages
-   - [ ] Add success notifications
-   - [ ] Improve mobile responsiveness
 
-3. **Features**
-   - [ ] Add conversation history persistence
-   - [ ] Implement user preferences
-   - [ ] Add support for multiple Notion workspaces
-   - [ ] Create documentation for block types
+### 2. UI/UX Improvements
+- [ ] Add loading states
+- [ ] Implement error messages
+- [ ] Add success notifications
+- [ ] Improve mobile responsiveness
 
-4. **Deployment**
-   - [ ] Set up Vercel deployment
-   - [ ] Add CI/CD pipeline
-   - [ ] Implement monitoring
-   - [ ] Add analytics
+### 3. Features
+- [ ] Add conversation history persistence
+- [ ] Implement user preferences
+- [ ] Implement caching for query results
+- [ ] Documentation
+
+### 4. Deployment
+- [ ] Set up Vercel deployment
+- [ ] Add CI/CD pipeline
+- [ ] Implement monitoring
 
 ## Testing the Current Build 🧪
 
@@ -92,7 +94,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
      OPENAI_API_KEY=your_openai_api_key_here
      NOTION_API_KEY=your_notion_api_key_here
      ```
-   - Create a file named `notion-config.json` with your Notion page and database IDs:
+   - Create a file named `notion-config.json` with your Notion page and database IDs (you can use notion-config-example.json for reference):
      ```json
      {
        "pages": {
@@ -103,6 +105,18 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
        }
      }
      ```
+3. **Update Schema cache**
+   The project includes a schema caching system that automatically fetches and stores your Notion database schemas. This helps with:
+   - Building accurate queries
+   - Validating property types
+   - Providing better error messages
+   - Keeping track of database changes
+
+   After creating the `.env` and `notion-config.json` files and populating them, run:
+   ```bash
+   npm run update-notion-schemas
+   ```
+   The schema cache is stored in `.notion-cache/` directory. Individual databases each have their own individual schemas, and there is a combined schema `schemas.json`.
 
 3. **Running Locally**
    ```bash
@@ -118,3 +132,6 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 ## License 📄
 
 This project is licensed under the GNU GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+
+
