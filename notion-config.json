@@ -1,80 +1,8 @@
 {
   "pages": {
-    "journal": {
-      "id": "1a833906fd9580b4bf5dc13bee4de7a0",
-      "name": "Journal",
-      "description": "Everyday journal"
-    },
-    "docs": {
-      "id": "21233906fd9580b6b118d59874147746",
-      "name": "Docs",
-      "description": "Documents and pages"
-    }
+    "daily": "your-daily-page-id"
   },
   "databases": {
-    "tracker": {
-      "id": "20733906fd95812bab3be02e28c16389",
-      "name": "Habits Tracker",
-      "description": "Daily habits tracker",
-      "properties": {
-        "Day": "title",
-        "Progress": "formula",
-        "Priority": "select",
-        "💤 8hrs of sleep": "checkbox",
-        "🧘 Meditation": "checkbox",
-        "🚴 Biking": "checkbox",
-        "✍ Journaling": "checkbox",
-        "👨‍🍳 Cooking": "checkbox",
-        "💼 Work": "checkbox",
-        "🎸 Guitar": "checkbox",
-        "🎨 Art": "checkbox",
-        "🎮 Gaming": "checkbox",
-        "🎬 Movie": "checkbox"
-      }
-    },
-    "calendar": {
-      "id": "1a833906fd9580ecb4a3e27c7900118b",
-      "name": "Busy Calendar",
-      "description": "Work calendar",
-      "properties": {
-        "Name": "title",
-        "Location": "title",
-        "Date": "date"
-      }
-    },
-    "projects": {
-      "id": "20433906fd9580c78014f6c24abc57d5",
-      "name": "Projects",
-      "description": "Projects currently working on",
-      "properties": {
-        "Project name": "title",
-        "Status": "status",
-        "Project date": "date",
-        "Priority": "select",
-        "Start value": "number",
-        "End value": "number",
-        "Progress": "formula",
-        "Attach file": "file"
-      }
-    },
-    "works": {
-      "id": "20433906fd9580628f11c49ce15c207c",
-      "name": "Works DB",
-      "description": "Database containing all projects",
-      "properties": {
-        "Doc name": "title",
-        "Description": "rich_text",
-        "Category": "multi_select",
-        "Company": "title",
-        "Created by": "person",
-        "Project date": "date",
-        "External link": "url",
-        "Project files": "file",
-        "Creator": "select",
-        "Platform": "select",
-        "Views": "number",
-        "Created time": "date"
-      }
-    }
+    "habits": "your-habits-database-id"
   }
 } 
