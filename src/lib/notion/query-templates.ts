@@ -20,8 +20,77 @@ export type DateFilterOperator =
   | 'is_not_empty'
 export type DatabaseName = keyof typeof notionConfig.databases
 
+interface NotionProperty {
+  id: string
+  type: string
+  name: string
+  select?: {
+    options: Array<{
+      id: string
+      name: string
+      color: string
+    }>
+  }
+  multi_select?: {
+    options: Array<{
+      id: string
+      name: string
+      color: string
+    }>
+  }
+  status?: {
+    options: Array<{
+      id: string
+      name: string
+      color: string
+    }>
+  }
+}
+
+interface DatabaseSchema {
+  id: string
+  title: string
+  properties: Record<string, NotionProperty>
+  lastUpdated: string
+}
+
+// Define the template type
+type DatabaseTemplate = {
+  type: 'database'
+  id: string
+  query: {
+    filter?: {
+      and: Array<{
+        property: string
+        [key: string]: any
+      }>
+    }
+    sorts?: Array<{
+      property: string
+      direction: SortDirection
+    }>
+  }
+}
+
+// Base query templates for each database
+export const databaseTemplates = Object.fromEntries(
+  Object.entries(notionConfig.databases).map(([name, db]) => [
+    name,
+    {
+      type: 'database',
+      id: db.id,
+      query: {
+        filter: {
+          and: []
+        },
+        sorts: []
+      }
+    }
+  ])
+) as unknown as Record<DatabaseName, DatabaseTemplate>
+
 // Helper function to parse date strings with smart defaults
-function parseDateWithDefaults(dateStr: string): Date {
+export function parseDateWithDefaults(dateStr: string): Date {
   const now = new Date()
   const currentYear = now.getFullYear()
   const currentMonth = now.getMonth()
@@ -56,7 +125,7 @@ function parseDateWithDefaults(dateStr: string): Date {
 }
 
 // Helper function to get a week's date range
-function getWeekDates(startDate?: Date | string) {
+export function getWeekDates(startDate?: Date | string) {
   const now = new Date()
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   
@@ -103,65 +172,6 @@ function getWeekDates(startDate?: Date | string) {
   return dateRange
 }
 
-// Base query templates for each database
-export const queryTemplates: Record<DatabaseName, {
-  type: 'database'
-  id: string
-  query: {
-    filter?: {
-      and: Array<{
-        property: string
-        [key: string]: any
-      }>
-    }
-    sorts?: Array<{
-      property: string
-      direction: SortDirection
-    }>
-  }
-}> = {
-  work: {
-    type: 'database',
-    id: notionConfig.databases.work,
-    query: {
-      filter: {
-        and: []
-      },
-      sorts: []
-    }
-  },
-  tracker: {
-    type: 'database',
-    id: notionConfig.databases.tracker,
-    query: {
-      filter: {
-        and: []
-      },
-      sorts: []
-    }
-  },
-  projects: {
-    type: 'database',
-    id: notionConfig.databases.projects,
-    query: {
-      filter: {
-        and: []
-      },
-      sorts: []
-    }
-  },
-  calendar: {
-    type: 'database',
-    id: notionConfig.databases.calendar,
-    query: {
-      filter: {
-        and: []
-      },
-      sorts: []
-    }
-  }
-}
-
 // Helper function to build a query from template
 export function buildQuery(
   database: DatabaseName,
@@ -176,7 +186,7 @@ export function buildQuery(
     direction: SortDirection
   }
 ) {
-  const template = queryTemplates[database]
+  const template = databaseTemplates[database]
   const query = { ...template }
 
   // Apply filters
@@ -191,7 +201,7 @@ export function buildQuery(
               property: filter.property,
               date: {
                 on_or_after: start,
-                before: end // Use 'before' instead of 'on_or_before'
+                before: end
               }
             }
           }
@@ -203,7 +213,7 @@ export function buildQuery(
                 property: filter.property,
                 date: {
                   on_or_after: start,
-                  before: end // Use 'before' instead of 'on_or_before'
+                  before: end
                 }
               }
             }
@@ -244,17 +254,4 @@ export function buildQuery(
 
   console.log('Final query:', JSON.stringify(query, null, 2))
   return query
-}
-
-// Example usage:
-// const nextWeekEvents = buildQuery('calendar', [
-//   {
-//     property: 'Date',
-//     filterType: 'date',
-//     operator: 'next_week',
-//     value: null
-//   }
-// ], {
-//   property: 'Date',
-//   direction: 'ascending'
-// }) 
+} 
