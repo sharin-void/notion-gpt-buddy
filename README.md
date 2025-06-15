@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notion GPT Buddy [ WIP ! ] 🐱‍💻
+![Static Badge](https://img.shields.io/badge/WIP%20!-red?style=social&logo=github&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/State-Development-red?style=flat&logo=github&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Next.js-green?logo=nextdotjs&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/TypeScript-blue?style=flat&logo=typescript&logoColor=fafafa&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Vercel-blue?logo=vercel&logoSize=auto)
+
+
+
+This is a work in progress. The project is being currently actively developed.
 
 ## Getting Started
 
