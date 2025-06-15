@@ -1,0 +1,10 @@
+{
+    "pages": {
+      "page1": "your-page-id1",
+      "page2": "your-page-id2"
+    },
+    "databases": {
+      "database1": "your-database-id1",
+      "database2": "your-database-id2"
+    }
+}
