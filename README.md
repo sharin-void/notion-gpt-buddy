@@ -90,6 +90,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 ## Testing the Current Build 🧪
 
 1. **Setup**
+
    ```bash
    # Clone the repository
    git clone https://github.com/your-username/notion-gpt-buddy.git
@@ -100,12 +101,13 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
    ```
 
 2. **Configuration**
+
    - Rename `.env.example` to `.env` and add your API keys:
      ```dotenv
      OPENAI_API_KEY=your_openai_api_key_here
      NOTION_API_KEY=your_notion_api_key_here
-     SUPABASE_URL=your_project_url
-     SUPABASE_ANON_KEY=your_anon_key
+     NEXT_PUBLIC_SUPABASE_URL=your_project_url
+     NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
      ```
    - Create a file named `notion-config.json` with your Notion page and database IDs (you can use notion-config-example.json for reference):
      ```json
@@ -119,6 +121,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
      }
      ```
 3. **Update Schema cache**
+
    The project includes a schema caching system that automatically fetches and stores your Notion database schemas. This helps with:
    - Building accurate queries
    - Validating property types
@@ -132,6 +135,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
    The schema cache is stored in `.notion-cache/` directory. Individual databases each have their own individual schemas, and there is a combined schema `schemas.json`.
 
 4. **Set up Supabase tables**
+
    Create a Supabase project, inside of which you should create a `conversations` and a `messages` table with the following columns:
    ```sql
    -- First create the conversations table
@@ -202,12 +206,14 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
    ```
 
 5. **Running Locally**
+
    ```bash
    npm run dev
    ```
    Visit `http://localhost:3000` to see the application.
 
 6. **Testing Features**
+
    - Try sending a message in the chat interface and chat with ChatGPT
    - Test Notion database queries _("What are my events for next week?", "How many in progress projects do I have?")_
    - Check error handling by using invalid API keys
