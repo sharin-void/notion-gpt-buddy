@@ -9,6 +9,8 @@
 > [!IMPORTANT]
 > This project is being currently developed, but you can check in on the progress while it's happening here! :r:
 
+![](https://github.com/sharin-void/notion-gpt-buddy/blob/master/src/app/logo-390x200.png)
+
 Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. This tool helps you interact with your Notion workspace using natural language, making it easier to manage your notes, tasks, and databases.
 
 # Features 🚀
@@ -97,7 +99,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
        }
      }
      ```
-     
+
 3. **Running Locally**
    ```bash
    npm run dev
