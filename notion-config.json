@@ -1,8 +1,0 @@
-{
-  "pages": {
-    "daily": "your-daily-page-id"
-  },
-  "databases": {
-    "habits": "your-habits-database-id"
-  }
-} 
