@@ -33,11 +33,11 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 
 # Progress 📈
 
-> [!PROGRESS]
-> Currently working on: \
-> * Database querying system \
-> * Page read functionality \
-> * Chat system \
+> [!IMPORTANT]
+> Currently working on:
+> * Database querying system
+> * Page read functionality
+> * Chat system
 
 ## Core Infrastructure
 - [x] Next.js framework with TypeScript setup
