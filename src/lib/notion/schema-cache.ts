@@ -1,4 +1,4 @@
-import { Client } from '@notionhq/client';
+import { Client, DatabaseObjectResponse, GetDatabaseResponse } from '@notionhq/client';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -39,7 +39,7 @@ interface DatabaseSchema {
 }
 
 export async function fetchAndCacheDatabaseSchemas(notion: Client, databaseIds: Record<string, string>) {
-  const schemas: Record<string, DatabaseSchema> = {};
+  const schemas: Record<string, GetDatabaseResponse> = {};
   const cacheDir = path.join(process.cwd(), '.notion-cache');
   
   try {
@@ -51,19 +51,13 @@ export async function fetchAndCacheDatabaseSchemas(notion: Client, databaseIds: 
         // Fetch database schema from Notion
         const response = await notion.databases.retrieve({ database_id: dbId });
         
-        // Transform the response into our schema format
-        const schema: DatabaseSchema = {
-          id: response.id,
-          title: dbName,
-          properties: response.properties as Record<string, NotionProperty>,
-          lastUpdated: new Date().toISOString()
-        };
-        schemas[dbName] = schema;
+        // Store the full response
+        schemas[dbName] = response;
         
         // Cache the schema to a file
         await fs.writeFile(
           path.join(cacheDir, `${dbName}.json`),
-          JSON.stringify(schema, null, 2)
+          JSON.stringify(response, null, 2)
         );
         
         console.log(`✅ Cached schema for database: ${dbName}`);
@@ -85,7 +79,7 @@ export async function fetchAndCacheDatabaseSchemas(notion: Client, databaseIds: 
   }
 }
 
-export async function loadCachedSchemas(): Promise<Record<string, DatabaseSchema> | null> {
+export async function loadCachedSchemas(): Promise<Record<string, GetDatabaseResponse> | null> {
   const cacheDir = path.join(process.cwd(), '.notion-cache');
   const schemasPath = path.join(cacheDir, 'schemas.json');
   
@@ -98,7 +92,7 @@ export async function loadCachedSchemas(): Promise<Record<string, DatabaseSchema
   }
 }
 
-export async function getDatabaseSchema(dbName: string): Promise<DatabaseSchema | null> {
+export async function getDatabaseSchema(dbName: string): Promise<GetDatabaseResponse | null> {
   const schemas = await loadCachedSchemas();
   return schemas?.[dbName] || null;
 } 

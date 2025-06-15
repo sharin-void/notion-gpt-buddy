@@ -38,6 +38,14 @@ async function main() {
       return acc;
     }, {} as Record<string, string>);
 
+    // Only process keys that exist in your config
+    const validDatabaseIds = Object.keys(notionConfig.databases).reduce((acc, key) => {
+      if (databaseIds[key]) {
+        acc[key] = databaseIds[key];
+      }
+      return acc;
+    }, {} as Record<string, string>);
+
     await fetchAndCacheDatabaseSchemas(notion, databaseIds);
     console.log('✅ Successfully updated database schemas!');
   } catch (error) {
