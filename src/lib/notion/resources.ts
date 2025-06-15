@@ -1,4 +1,4 @@
-import notionResources from '@/config/notion-resources.json'
+import notionResources from '../../../notion-config.json'
 import type { NotionResources } from '@/types/notion'
 
 export function getNotionResources(): NotionResources {
