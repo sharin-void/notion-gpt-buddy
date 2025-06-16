@@ -39,12 +39,12 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 > * Page read functionality
 > * Chat system
 
-## Core Infrastructure
+### Core Infrastructure
 - [x] Next.js framework with TypeScript setup
 - [x] OpenAI and Notion API integration
 - [x] Environment configuration and error handling
 
-## Database Integration
+### Database Integration
 - [x] Schema caching system with automated updates
 - [x] Universal query templates for any database configuration
 - [x] Natural language to database query mapping
@@ -54,7 +54,7 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 - [ ] Query result caching
 - [ ] Advanced date range handling
 
-## Chat System
+### Chat System
 - [x] Two-stage query processing (analysis + execution)
 - [x] Natural language database querying
 - [x] Conversational responses based on real data
@@ -62,26 +62,26 @@ Build a ChatGPT-powered Notion assistant with the help of Next.js and Vercel. Th
 - [ ] Loading states and progress indicators
 - [ ] Better error messages with suggestions
 
-## Memory & Persistence
+### Memory & Persistence
 - [x] Supabase integration for conversation storage
 - [x] Conversation service with CRUD operations
 - [x] Message persistence and history management
 - [ ] Conversation management UI
 
-## Notion Page Integration
+### Notion Page Integration
 - [x] Basic page search functionality
 - [ ] Full-text page content extraction and analysis
 - [ ] Block-level operations
 - [ ] Block and database content creation and modification
 
-## User Experience
+### User Experience
 - [x] Improved chat interface with message bubbles
 - [x] Responsive design and readability
 - [x] Concise responses (titles only unless details requested)
 - [ ] Mobile optimization
 - [ ] Dark/light theme support
 
-## Production Ready
+### Production Ready
 - [ ] Vercel deployment configuration
 - [ ] Rate limiting and request optimization
 - [ ] Performance monitoring and logging
